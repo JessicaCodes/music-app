@@ -7,11 +7,16 @@ const pool = new Pool({
   host: "localhost",
   // database: "music",
   database: "music",
-  password: "J082901o$",
+  password: "",
   port: 5432
 });
 
 // Our logic for getting data back from postgres
+
+
+
+// ------------------------ Get Queries ----------------------
+
 const getArtist = (request, response) => {
   pool.query('SELECT * FROM artist', (error, result) => {
     if(error){
@@ -37,6 +42,25 @@ const getGenre = (request, response) => {
     }
     response.status(200).json(result.rows);
   });
+}
+
+// -------------------- Add Queries ----------------------
+
+
+const addGenre = (request, response) => {
+  console.log(request.body, "<--- request.body")
+  const { id, name } = request.body;
+
+  pool.query(
+    `INSERT INTO genre ( name ) VALUES ($1)`,
+    [ name ],
+    (error, results) => {
+      if(error){
+        throw error;
+      }
+      response.status(200).json(results.rows);
+    }
+  )
 }
 
 const addArtist = (request, response) => {
@@ -70,21 +94,46 @@ const addAlbum = (request, response) => {
     }
   )
 }
-const addGenre = (request, response) => {
-  console.log(request.body, "<--- request.body")
-  const { id, name } = request.body;
 
-  pool.query(
-    `INSERT INTO genre (id, name) VALUES ($1, $2)`,
-    [id, name],
-    (error, results) => {
+
+
+// --------------------Delete Queries-----------------------
+
+
+const deleteGenreById = (req, res) => {
+  const song_id = parseInt(req.params.song_id);
+
+  pool.query(`DELETE FROM genre WHERE id=${id}`, (error, results) => {
       if(error){
-        throw error;
+          throw error;
       }
-      response.status(200).json(results.rows);
-    }
-  )
+      res.status(200).json(results.rows);
+  })
 }
+
+const deleteArtistById = (req, res) => {
+  const song_id = parseInt(req.params.id);
+
+  pool.query(`DELETE FROM artist WHERE id=${id}`, (error, results) => {
+      if(error){
+          throw error;
+      }
+      res.status(200).json(results.rows);
+  })
+}
+
+const deleteAlbumById = (req, res) => {
+  const song_id = parseInt(req.params.id);
+
+  pool.query(`DELETE FROM album WHERE id=${id}`, (error, results) => {
+      if(error){
+          throw error;
+      }
+      res.status(200).json(results.rows);
+  })
+}
+
+
 module.exports = {
   getArtist: getArtist,
   addArtist: addArtist,
