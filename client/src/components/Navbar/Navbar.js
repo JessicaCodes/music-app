@@ -17,13 +17,13 @@ class Navbar extends Component {
                             </a>
                             <ul class="submenu">
 
-            <li className="sublist"><a href="#">Add a {item.title} </a></li>
+            <li className="sublist"><a>Add a {item.title} </a></li>
 
-            <li className="sublist"><a href="#">Edit a {item.title}</a></li>
+            <li className="sublist"><a>Edit a {item.title}</a></li>
 
-            <li className="sublist"><a href="#">Delete a {item.title}</a></li>
+            <li className="sublist"><a>Delete a {item.title}</a></li>
             </ul>
-
+ 
                         </li>
                     )
                 })}

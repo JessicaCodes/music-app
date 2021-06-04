@@ -1,5 +1,6 @@
-// pg - node-postgres
-// https://node-postgres.com/api/pool
+require('dotenv').config();
+const password = process.env.PSQL_PASS
+console.log(typeof password)
 const Pool = require('pg').Pool;
 
 const pool = new Pool({
@@ -7,7 +8,7 @@ const pool = new Pool({
   host: "localhost",
   // database: "music",
   database: "music",
-  password: "",
+  password: password,
   port: 5432
 });
 
@@ -18,7 +19,7 @@ const pool = new Pool({
 // ------------------------ Get Queries ----------------------
 
 const getArtist = (request, response) => {
-  pool.query('SELECT * FROM artist', (error, result) => {
+  pool.query('SELECT * FROM artist', (error, result) => { 
     if(error){
       throw error;
     }
