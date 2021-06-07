@@ -13,7 +13,7 @@ app.get('/', (request, response) => {
 app.get('/albums', db.getAlbum);
 app.use(express.json());
 app.post('/addalbums', db.addAlbum);
-app.delete('/album/:id', db.deleteAlbumById);
+// app.delete('/album/:id', db.deleteAlbumById);
 
 app.get('/artist', db.getArtist);
 app.use(express.json());
