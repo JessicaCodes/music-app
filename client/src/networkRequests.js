@@ -4,7 +4,7 @@ export const getAllGenres = async () => {
 }
 
 export const getAllArtists = async () => {
-    const artists = await fetch("http://localhost:3030/genre");
+    const artists = await fetch("http://localhost:3030/artist");
     return artists.json();
 }
 
@@ -18,3 +18,4 @@ export const addArtist = async (artist) => {
     });
     return holdResponse;    
 }
+

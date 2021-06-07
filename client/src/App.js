@@ -4,8 +4,10 @@ import Search from './components/Search/search'
 import Nav from './components/Navbar/MenuItems'
 import ImageCollage from './components/ImageCollage/imagecollage'
 import React from 'react';
-import { getAllGenres } from './networkRequests'
-import Genres from './components/Genres/Genres'
+import { getAllGenres, getAllArtists } from './networkRequests';
+import Genres from './components/Genres/Genres';
+import Artists from './components/Artists/artists';
+
 
 class App extends React.Component {
 
@@ -19,6 +21,9 @@ class App extends React.Component {
     this.setState({ genres: await getAllGenres() })
   }
 
+  artistClick = async() => {
+    this.setState({ artists: await getAllArtists() })
+  }
   
   render() {
     return (
@@ -28,8 +33,12 @@ class App extends React.Component {
       <Search />
       <header className="App-header">
       <Nav />
-      <button onClick={this.genreClick}>genres</button>
+      <button onClick={this.genreClick}>Genres</button>
+      <button onClick={this.artistClick}>Artists</button>
+      {/* <Artists /> */}
       <Genres genres={this.state.genres}/>
+      <Artists artists={this.state.artists}/>
+      
       
       <ImageCollage />
         
