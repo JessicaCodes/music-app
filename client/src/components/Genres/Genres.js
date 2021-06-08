@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './genres.css'
 
 
-class Genres extends Component {
-    render() {
+
+function Genres(props) {
         return(
             <ul  
             className="genres">
-                {this.props.genres.map((item, index) => {
+                {props.genres.map((item, index) => {
                     return (
                         <li key={index}>
                             <span>{item.name}</span>
@@ -19,6 +19,6 @@ class Genres extends Component {
             </ul>
         )
     }
-}
+
 
 export default Genres;

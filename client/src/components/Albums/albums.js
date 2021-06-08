@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
-import './genres.css'
+import React from 'react';
+import './album.css'
 
 
-class Genres extends Component {
-    render() {
+function Albums(props) {
         return(
             <ul  
-            className="genres">
-                {this.props.genres.map((item, index) => {
+            className="albums">
+                {props.albums.map((item, index) => {
                     return (
                         <li key={index}>
                             <span>{item.name}</span>
@@ -21,4 +20,4 @@ class Genres extends Component {
     }
 }
 
-export default Genres;
+export default Albums;

@@ -1,9 +1,8 @@
 import React from 'react';
-import { addArtist } from './networkRequests';
+import { addArtist } from './components/networkRequests';
 
 class AddArtist extends React.Component {
     state = {
-       id: "",
        artist_name: "",
        genre_id: ""
     }
