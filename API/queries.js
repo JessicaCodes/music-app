@@ -68,7 +68,8 @@ const addGenre = (request, response) => {
 
 const addArtist = (request, response) => {
   console.log(request.body, "<--- request.body")
-  const { id, artist_name, genre_id } = request.body;
+  const {artist_name, genre_id } = request.body;
+  const id = artist_name.slice(0,4)
 
   pool.query(
     `INSERT INTO artist (id, artist_name, genre_id) VALUES ($1, $2, $3)`,

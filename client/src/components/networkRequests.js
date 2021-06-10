@@ -1,36 +1,36 @@
 //--------------------Get Requests-----------------------
 
 export const getAllGenres = async () => {
-    const genres = await fetch("http://localhost:3030/genre");
+    const genres = await fetch("https://d1a4k1ihjbvg4p.cloudfront.net/genre");
     return genres.json();
 }
 
 export const getAllArtists = async () => {
-    const artists = await fetch("http://localhost:3030/artist");
+    const artists = await fetch("https://d1a4k1ihjbvg4p.cloudfront.net/artist");
     return artists.json();
 }
 
 export const getAllAlbums = async () => {
-    const artists = await fetch("http://localhost:3030/albums");
+    const artists = await fetch("https://d1a4k1ihjbvg4p.cloudfront.net/albums");
     return artists.json();
 }
 
 //-------------------Add Requests----------------------------
 
 export const addGenre = async (genre) => {
-    const holdResponse = await fetch("http://localhost:3030/addgenre", {
+    const holdResponse = await fetch("https://d1a4k1ihjbvg4p.cloudfront.net/addgenre", {
         method: "POST",
         headers: {
             "Content-Type":"application/json"
         },
-        body: JSON.stringify(Ggenre)
+        body: JSON.stringify(genre)
     });
     return holdResponse;    
 }
 
 
 export const addArtist = async (artist) => {
-    const holdResponse = await fetch("http://localhost:3030/addartist", {
+    const holdResponse = await fetch("https://d1a4k1ihjbvg4p.cloudfront.net/addartist", {
         method: "POST",
         headers: {
             "Content-Type":"application/json"
@@ -41,7 +41,7 @@ export const addArtist = async (artist) => {
 }
 
 export const addAlbum = async (album) => {
-    const holdResponse = await fetch("http://localhost:3030/addalbum", {
+    const holdResponse = await fetch("https://d1a4k1ihjbvg4p.cloudfront.net/addalbum", {
         method: "POST",
         headers: {
             "Content-Type":"application/json"

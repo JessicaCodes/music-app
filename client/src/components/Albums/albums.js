@@ -1,5 +1,5 @@
 import React from 'react';
-import './album.css'
+import './albums.css'
 
 
 function Albums(props) {
@@ -18,6 +18,6 @@ function Albums(props) {
             </ul>
         )
     }
-}
+
 
 export default Albums;

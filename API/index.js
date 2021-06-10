@@ -7,7 +7,7 @@ const cors = require('cors');
 app.use(cors());
 
 app.get('/', (request, response) => {
-    response.json({ info: "Welcome to Jessica's Hip Hop database!index!"})
+    response.json({ info: "Welcome to Jessica's Hip Hop database!"})
 });
 
 app.get('/albums', db.getAlbum);
